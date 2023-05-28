@@ -22,29 +22,10 @@
             <?php include('../../components/sidebar.php') ?>
             <div class="col-md-9" style="height:100vh">
                 <div class="main-content">
-                    <h3>Ajukan Peminjaman Buku</h3>
+                    <h3>Peminjaman Buku</h3>
+                    <p>Serahkan QR-Code Pada Pustakawan di Lokasi Yang Anda Pilih</p>
                     <div class="col-md-12 mt-4">
-                        <form class="form-group">
-                            <label for="mySelect" class="mb-2">Pilih Buku Yang Ingin Dipinjam</label>
-                            <select id="mySelect" name="mySelect" class="form-control">
-                                <option value="option1">Madilog</option>
-                                <option value="option2">Laut Bercerita</option>
-                                <option value="option3">Bagaimana Negara Gagal</option>
-                            </select>
-                            <div class="tgl-pinjam mt-4">
-                                <label for="mySelect">Pilih Tanggal Meminjam Buku</label>
-                                <input type="text" id="startDate" name="startDate" placeholder="Tanggal Peminjaman"
-                                    class="form-control mt-2">
-                            </div>
-                            <div class="tgl-kembali mt-4">
-                                <label for="mySelect">Pilih Buku Yang Ingin Dipinjam</label>
-                                <input type="text" id="endDate" name="endDate" placeholder="Tanggal Pengembalian"
-                                    class="form-control mt-2">
-                            </div>
-                            <div class="button-to-submit mt-4">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
+                        
                     </div>
                 </div>
             </div>
