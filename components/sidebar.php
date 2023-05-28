@@ -9,7 +9,7 @@
             <a class="nav-link" href="../../index.php"><i class="bi bi-house-fill"></i> Homepage</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../user/buku.php"><i class="bi bi-book-fill"></i> Daftar Buku</a>
+            <a class="nav-link" href="../user/buku/index.php"><i class="bi bi-book-fill"></i> Daftar Buku</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="../user/peminjaman/index.php"><i class="bi bi-arrow-left"></i> Peminjaman</a>

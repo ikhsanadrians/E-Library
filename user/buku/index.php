@@ -1,9 +1,10 @@
 <?php
 
-include('../core/controllers/book.php');
+include('../../core/controllers/book.php');
 
 $books = new Book;
 $bookData = $books->index();
+
 
 ?>
 
@@ -17,16 +18,16 @@ $bookData = $books->index();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Buku | E-Perpus</title>
-    <link rel="stylesheet" href="../assets/css/elibrary/index.css">
-    <link rel="stylesheet" href="../assets/css/main/app.css">
-    <link rel="shortcut icon" href="../assets/images/eperpus/logo-eperpus-mini.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/elibrary/index.css">
+    <link rel="stylesheet" href="../../assets/css/main/app.css">
+    <link rel="shortcut icon" href="../../assets/images/eperpus/logo-eperpus-mini.png" type="image/x-icon">
 
 </head>
 
 <body>
     <div class="container-fluid" style="overflow-x:hidden">
         <div class="row">
-            <?php include('../components/sidebar.php') ?>
+            <?php include('../../components/sidebar.php') ?>
             <div class="col-md-9">
                 <div class="main-content">
                     <h3>Cari Buku</h3>
@@ -52,9 +53,11 @@ $bookData = $books->index();
                             <?php foreach($bookData as $key => $book) : ?>
                             <div class="col-md-3">
                                 <div class="card">
-                                    <img class="card-img-top" src="../assets/images/samples/jump.jpg" alt="Title">
+                                    <div class="card-img-top">
+                                        <img src="<?=  $book['image'] ?>" alt="Title">
+                                    </div>
                                     <div class="card-body">
-                                        <h4 class="card-title"><?= $book["judul"] ?></h4>
+                                        <h4 class="card-title"><a href="detail.php?id=<?= $book['id'] ?>"><?= $book["judul"] ?></a></h4>
                                         <p class="card-text"><?= $books->getPenulisById($book['penulis_id'])['nama'] ?></p>
                                     </div>
                                 </div>

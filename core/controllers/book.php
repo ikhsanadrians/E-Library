@@ -1,6 +1,6 @@
 <?php
 
-require_once('../core/DB.php');
+require_once('../../core/DB.php');
 
 class Book extends DB
 {
@@ -17,6 +17,21 @@ class Book extends DB
 
     public function getPenulisById($id){
         $sql =  "SELECT * FROM penulis WHERE id='$id'";
+        $queryExec = $this->db->query($sql);
+        $data = $queryExec->fetch_assoc();
+        return $data;
+    }
+
+    public function getCategoryById($id){
+        $sql = "SELECT * FROM category WHERE id='$id'";
+        $queryExec = $this->db->query($sql);
+        $data = $queryExec->fetch_assoc();
+        return $data;
+    }
+
+    public function show(){
+        $idOfBook = $_GET['id'];
+        $sql = "SELECT * FROM book WHERE id='$idOfBook'";
         $queryExec = $this->db->query($sql);
         $data = $queryExec->fetch_assoc();
         return $data;
