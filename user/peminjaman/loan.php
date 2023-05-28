@@ -1,7 +1,7 @@
 <?php
 
 include "../../assets/extensions/phpqrcode/qrlib.php";
-$isi = 'https://www.malasngoding.com';
+
 
 $storeLocation = "temp/";
 
