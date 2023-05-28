@@ -1,3 +1,14 @@
+<?php
+
+include('../core/controllers/book.php');
+
+$books = new Book;
+$bookData = $books->index();
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,78 +49,18 @@
                     </div>
                     <div class="col-md-12 mt-2">
                         <div class="row">
+                            <?php foreach($bookData as $key => $book) : ?>
                             <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top" src="../assets/images/samples/jump.jpg" alt="Title">
                                     <div class="card-body">
-                                        <h4 class="card-title">Madilog</h4>
-                                        <p class="card-text">Tan Malaka</p>
+                                        <h4 class="card-title"><?= $book["judul"] ?></h4>
+                                        <p class="card-text"><?= $books->getPenulisById($book['penulis_id'])['nama'] ?></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="../assets/images/samples/jump.jpg" alt="Title">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Dilan 1991</h4>
-                                        <p class="card-text">Pidi Baiq</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="../assets/images/samples/jump.jpg" alt="Title">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Laut Bercerita</h4>
-                                        <p class="card-text">Leila S. Chudori</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="../assets/images/samples/jump.jpg" alt="Title">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Sang Pemimpi</h4>
-                                        <p class="card-text">Andrea Hirata</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="../assets/images/samples/jump.jpg" alt="Title">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Orang Orang Dipersimpangan Kiri Jalan</h4>
-                                        <p class="card-text">Soe Hok Gie</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="../assets/images/samples/jump.jpg" alt="Title">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Orang Orang Dipersimpangan Kiri Jalan</h4>
-                                        <p class="card-text">Soe Hok Gie</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="../assets/images/samples/jump.jpg" alt="Title">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Orang Orang Dipersimpangan Kiri Jalan</h4>
-                                        <p class="card-text">Soe Hok Gie</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="../assets/images/samples/jump.jpg" alt="Title">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Orang Orang Dipersimpangan Kiri Jalan</h4>
-                                        <p class="card-text">Soe Hok Gie</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php endforeach ?>
+                           
                         </div>
                         <ul class="pagination pagination-primary d-flex justify-content-center">
                             <li class="page-item">
