@@ -1,0 +1,23 @@
+.logoelib {
+    height: 30px;
+}
+
+.sidebar,
+.main-content {
+    height: 100%;
+    padding: 1rem;
+}
+
+.nav-link {
+    display: flex;
+    gap: 10px;
+}
+
+.card-icon {
+    height: 40px;
+}
+
+.profile-picture {
+    height: 40px;
+    width: 40px;
+}
