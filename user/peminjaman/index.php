@@ -1,3 +1,17 @@
+<?php
+
+include('../../core/controllers/peminjaman.php');
+
+$peminjaman = new Peminjaman;
+
+$data = $peminjaman->showAllBook();
+
+if(isset($_POST['submit'])){
+    $peminjaman->requestPeminjaman();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,12 +38,12 @@
                 <div class="main-content">
                     <h3>Ajukan Peminjaman Buku</h3>
                     <div class="col-md-12 mt-4">
-                        <form class="form-group">
+                        <form class="form-group" method="POST" action="">
                             <label for="mySelect" class="mb-2">Pilih Buku Yang Ingin Dipinjam</label>
-                            <select id="mySelect" name="mySelect" class="form-control">
-                                <option value="option1">Madilog</option>
-                                <option value="option2">Laut Bercerita</option>
-                                <option value="option3">Bagaimana Negara Gagal</option>
+                            <select id="mySelect" name="book" class="form-control">
+                                <?php foreach($data as $key => $book) : ?>
+                                    <option value="<?= $book['id'] ?>"><?= $book['judul'] ?></option>
+                                <?php endforeach ?>
                             </select>
                             <div class="tgl-pinjam mt-4">
                                 <label for="mySelect">Pilih Tanggal Meminjam Buku</label>
@@ -42,7 +56,7 @@
                                     class="form-control mt-2">
                             </div>
                             <div class="button-to-submit mt-4">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                             </div>
                         </form>
                     </div>

@@ -38,6 +38,8 @@ class Member extends DB
       session_start();
       $_SESSION['user_token'] = $value;
       header('Location:/');
+    } else {
+      header('Location:login.php?message=error');
     }
   }
 
@@ -57,7 +59,6 @@ class Member extends DB
     if ($sessionCondition == 1 ? ($_SESSION['user_token'] ?? null) : (!$_SESSION['user_token'] ?? null) ) 
         header($headerLoc);
     
-
   }
 
   public function LogOut(): void

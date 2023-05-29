@@ -1,29 +1,17 @@
 <?php
 
-include "../../assets/extensions/phpqrcode/qrlib.php";
-
+include('../../core/controllers/peminjaman.php');
+include("../../assets/extensions/phpqrcode/qrlib.php");
 
 $storeLocation = "temp/";
+
+$loans = new Peminjaman;
+$loanDetail = $loans->getDetailByCode();
 
 if (!file_exists($storeLocation))
     mkdir($storeLocation);
 
-$isi = generateVerificationCode(8);
-
-QRcode::png($isi, $storeLocation . '004_4.png', QR_ECLEVEL_H, 4, 5);
-
-function generateVerificationCode($length)
-{
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $code = 'pm';
-
-    for ($i = 0; $i < $length; $i++) {
-        $randomIndex = rand(0, strlen($characters) - 1);
-        $code .= $characters[$randomIndex];
-    }
-
-    return $code;
-}
+QRcode::png($loanDetail['kode_peminjaman'], $storeLocation . '004_4.png', QR_ECLEVEL_H, 4, 5);
 
 ?>
 
@@ -62,7 +50,7 @@ function generateVerificationCode($length)
                                     <div class="kode-qr d-flex align-items-center justify-content-center gap-1">
                                         <h6 class="mt-1">Kode : </h6>
                                         <p class="text-center mt-2">
-                                            <?= $isi ?>
+                                            <?= $loanDetail['kode_peminjaman'] ?>
                                         </p>
                                     </div>
                                 </div>
@@ -81,11 +69,11 @@ function generateVerificationCode($length)
                                                         <th>Tanggal Pengembalian</th>
                                                     </tr>
                                                     <tr>
-                                                        <td>Ahmad Saugi</td>
-                                                        <td>1122334</td>
-                                                        <td>Catatan Seorang Demostran</td>
-                                                        <td>12/4/2023</td>
-                                                        <td>12/5/2023</td>
+                                                        <td><?= $loans->getMemberById($loanDetail['member_id'])['fullname'] ?></td>
+                                                        <td><?= $loanDetail['kode_peminjaman'] ?></td>
+                                                        <td><?= $loans->getBookById($loanDetail['buku_id'])['judul'] ?></td>
+                                                        <td><?= $loanDetail['tgl_awal_pinjam'] ?></td>
+                                                        <td><?= $loanDetail['tgl_akhir_pinjam'] ?></td>
                                                     </tr>
                                                 </table>
                                             </div>
