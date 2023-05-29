@@ -71,7 +71,7 @@ class Peminjaman extends DB
         $memberId = $memberDetail['id'];
         $isi = $this->generateVerificationCode(8);
 
-        $sql = "INSERT INTO `peminjaman`(`buku_id`, `member_id`, `petugas_id`, `tgl_awal_pinjam`, `tgl_akhir_pinjam`, `kode_peminjaman`) VALUES ('$book','$memberId',1,'$startDate','$endDate','$isi')";
+        $sql = "INSERT INTO `peminjaman`(`buku_id`, `member_id`, `petugas_id`, `tgl_awal_pinjam`, `tgl_akhir_pinjam`, `kode_peminjaman`,`status`) VALUES ('$book','$memberId',1,'$startDate','$endDate','$isi','process')";
         
         $action = $this->db->query($sql);
         
@@ -85,10 +85,13 @@ class Peminjaman extends DB
         $code = $_GET['code'];
         $sql = "SELECT * FROM peminjaman WHERE kode_peminjaman='$code'";
         $action = $this->db->query($sql);
-
         $data = $action->fetch_assoc();
+        if($action->num_rows > 0){
+            return $data;
+        } else {
+            Header('Location:index.php');
+        }
         
-        return $data;
 
     }
 

@@ -8,6 +8,7 @@ $storeLocation = "temp/";
 $loans = new Peminjaman;
 $loanDetail = $loans->getDetailByCode();
 
+
 if (!file_exists($storeLocation))
     mkdir($storeLocation);
 
