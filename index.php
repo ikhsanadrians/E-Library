@@ -1,3 +1,21 @@
+<?php
+
+include('./core/controllers/member.php');
+
+session_start();
+
+$members = new Member;
+
+$members->Middleware(2,'Location:Auth/login.php');
+
+$member = $members->getMemberByToken($_SESSION['user_token']);
+
+if(isset($_POST['logout'])){
+  $members->LogOut();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,10 +37,14 @@
         <div class="main-content">
           <div class="row">
             <div class="col-md-12 d-flex justify-content-between">
-              <div class="profile-pic" style="height:100%; display: flex; align-items:center; gap:10px">
-              <h4 class="title"><span><img src="./assets/images/faces/2.jpg" alt="pp" class="profile-picture rounded-circle"></span> Ahmad Saugi</h4>
+              <div class="profile-pic" style="height:100%; display: flex; align-items:center; gap:20px">
+              <h4 class="title"><span><img src="./assets/images/faces/2.jpg" alt="pp" class="profile-picture rounded-circle m-2"></span><?= $member['fullname'] ?></h4>
               </div>
-              <i class="bi bi-box-arrow-left" style="font-size:1.3rem"></i>
+              <form action="" method="post">
+                <button type="submit" name="logout" class="btn btn-none">
+                  <i class="bi bi-box-arrow-left" style="font-size:1.3rem"></i>
+                </button>
+              </form>
             </div>
             <div class="col-md-6 mt-2">
               <div class="card bg-white shadow-sm">

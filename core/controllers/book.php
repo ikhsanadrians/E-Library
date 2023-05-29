@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../core/DB.php');
+include('DB.php');
 
 class Book extends DB
 {

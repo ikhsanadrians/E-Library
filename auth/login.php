@@ -2,6 +2,23 @@
 
 
 
+include('../core/controllers/member.php');
+
+$members = new Member;
+
+
+$members->Middleware(1,'Location:/');
+
+
+if(isset($_POST['submit'])){
+   
+   $members->Login();
+
+}
+
+
+
+
 ?>
 
 <html lang="en">
@@ -21,7 +38,7 @@
   <body>
     <script src="assets/static/js/initTheme.js"></script>
     <div id="auth">
-      <div class="row h-100">
+      <div class="row" style="overflow-y:hidden">
         <div class="col-lg-5 col-12">
           <div id="auth-left">
             <div class="auth-logo">
@@ -33,11 +50,11 @@
             <p class="mb-5" style="font-size:20px;">
               Log in Sebagai Member
             </p>
-
-            <form action="index.html">
+            <form action="" method="POST">
               <div class="form-group position-relative has-icon-left mb-4 d-flex">
                 <input
                   type="text"
+                  name="username"
                   class="form-control form-control-md"
                   placeholder="Username"
                 />
@@ -48,6 +65,7 @@
               <div class="form-group position-relative has-icon-left mb-4">
                 <input
                   type="password"
+                  name="password"
                   class="form-control form-control-md"
                   placeholder="Password"
                 />
@@ -69,7 +87,7 @@
                   Izinkan Saya Tetap Masuk
                 </label>
               </div>
-              <button class="btn btn-primary btn-block btn-md shadow-lg mt-5">
+              <button type="submit" name="submit" class="btn btn-primary btn-block btn-md shadow-lg mt-5">
                 Log in
               </button>
             </form>
