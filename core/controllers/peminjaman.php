@@ -86,11 +86,10 @@ class Peminjaman extends DB
         $sql = "SELECT * FROM peminjaman WHERE kode_peminjaman='$code'";
         $action = $this->db->query($sql);
         $data = $action->fetch_assoc();
-        if($action->num_rows > 0){
-            return $data;
-        } else {
-            Header('Location:index.php');
-        }
+        
+        if($action->num_rows > 0) return $data;
+        else Header('Location:index.php');
+        
         
 
     }
