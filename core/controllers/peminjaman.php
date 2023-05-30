@@ -1,9 +1,16 @@
 <?php
 
-include('DB.php');
+include_once('DB.php');
 
 class Peminjaman extends DB
 {
+   
+    public function getAllPeminjamanById($id){
+      $sql = "SELECT * FROM peminjaman WHERE member_id='$id'";
+      $action = $this->db->query($sql);
+      $data = $action->fetch_all(MYSQLI_ASSOC);
+      return $data;
+    } 
 
     public function getMemberByToken($token)
     {

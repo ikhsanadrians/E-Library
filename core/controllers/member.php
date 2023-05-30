@@ -1,6 +1,6 @@
 <?php
 
-include('DB.php');
+include_once('DB.php');
 
 
 class Member extends DB
@@ -58,7 +58,7 @@ class Member extends DB
 
     if ($sessionCondition == 1 ? ($_SESSION['user_token'] ?? null) : (!$_SESSION['user_token'] ?? null) ) 
         header($headerLoc);
-    
+     
   }
 
   public function LogOut(): void
