@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 29 Bulan Mei 2023 pada 17.03
+-- Waktu pembuatan: 30 Bulan Mei 2023 pada 21.01
 -- Versi server: 5.7.33
 -- Versi PHP: 8.1.8
 
@@ -87,7 +87,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id`, `username`, `fullname`, `password`, `phone_number`, `jenis_kelamin`, `token`) VALUES
-(1, 'saugix', 'Ahmad Saugi', 'hahahihi', '081808042380', 'L', 'jCWhKU7yCEnTPWE');
+(1, 'saugix', 'Ahmad Saugi', 'hahahihi', '081808042380', 'L', 'h4rBeEORYnBSavu');
 
 -- --------------------------------------------------------
 
@@ -112,7 +112,7 @@ CREATE TABLE `peminjaman` (
 
 INSERT INTO `peminjaman` (`id`, `buku_id`, `member_id`, `petugas_id`, `tgl_awal_pinjam`, `tgl_akhir_pinjam`, `kode_peminjaman`, `status`) VALUES
 (6, 1, 1, 1, '2023-05-29', '2023-05-31', 'pm4KXXxgBQ', 'process'),
-(7, 1, 1, 1, '2023-05-30', '2023-05-31', 'pmmLItYvoY', 'process');
+(8, 2, 1, 1, '2023-05-31', '2023-06-03', 'pm71cH6xWq', 'process');
 
 -- --------------------------------------------------------
 
@@ -186,16 +186,18 @@ INSERT INTO `penulis` (`id`, `nama`, `deskripsi`, `foto`) VALUES
 CREATE TABLE `petugas` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `nip` char(13) NOT NULL
+  `nip` char(13) NOT NULL,
+  `token` char(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `petugas`
 --
 
-INSERT INTO `petugas` (`id`, `username`, `password`, `nip`) VALUES
-(1, 'Raya Arizkuy', 'raya-chan', '112233');
+INSERT INTO `petugas` (`id`, `username`, `fullname`, `password`, `nip`, `token`) VALUES
+(1, 'rayarizkuy', 'Raya Ar-Rizky', 'raya-chan', '112233', 'AD5QBcOhQHuWmkn');
 
 -- --------------------------------------------------------
 
@@ -333,7 +335,7 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `penerbit`
