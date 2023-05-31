@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
     <script>
         const selectElement = document.getElementById('mySelect');
         const choices = new Choices(selectElement);
-
+        
         const startDateElement = document.getElementById('startDate');
         const endDateElement = document.getElementById('endDate');
 

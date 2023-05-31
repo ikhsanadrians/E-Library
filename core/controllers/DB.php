@@ -4,7 +4,7 @@ class DB {
    private $hostName = "localhost";
    private $hostUser = "root";
    private $hostPass = "";
-   private $hostDB = "e_perpus";
+   private $hostDB = "e_library";
  
    public $db;
    public function __construct(){

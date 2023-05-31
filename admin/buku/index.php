@@ -50,10 +50,10 @@ $bookData = $books->index();
                             </div>
                         </div>
                         <div class="add-new-book mt-2">
-                            <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal"
+                            <a href="./create.php" class="btn btn-outline-primary block" data-bs-toggle="modal"
                                 data-bs-target="#border-less">
                                 Tambah Buku
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-12 mt-2">
@@ -105,43 +105,4 @@ $bookData = $books->index();
             </div>
         </div>
     </div>
-    <div class="modal fade text-left show" id="inlineForm" tabindex="-1" aria-labelledby="myModalLabel33" style="display: block;" aria-modal="true" role="dialog">
-                          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel33">
-                                  Login Form
-                                </h4>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                </button>
-                              </div>
-                              <form action="#">
-                                <div class="modal-body">
-                                  <label for="email">Judul Buku: </label>
-                                  <div class="form-group">
-                                    <input id="email" type="text" placeholder="Email Address" class="form-control">
-                                  </div>
-                                  <label for="password">Password: </label>
-                                  <div class="form-group">
-                                    <input id="password" type="password" placeholder="Password" class="form-control">
-                                  </div>
-                                  <label for="password">Deskripsi: </label>
-                                  <div class="form-group">
-                                    <textarea  placeholder="Deskripsi Buku" class="form-control"></textarea>
-                                  </div>
-                                  <div class="form-group">
-                                    <textarea  placeholder="Deskripsi Buku" class="form-control"></textarea>
-                                  </div>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-primary ms-1" data-bs-dismiss="modal">
-                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Submit</span>
-                                  </button>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
 </body>
