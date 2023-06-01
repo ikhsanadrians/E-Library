@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 30 Bulan Mei 2023 pada 21.01
+-- Waktu pembuatan: 01 Jun 2023 pada 16.49
 -- Versi server: 5.7.33
 -- Versi PHP: 8.1.8
 
@@ -43,8 +43,8 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`id`, `judul`, `deskripsi`, `image`, `category_id`, `penerbit_id`, `tanggal_terbit`, `penulis_id`) VALUES
-(1, 'Catatan Seorang Demostran', 'Buku ini bercerita tentang Soe Hok Gie yang merupakan seorang aktivis kampus yang memegang teguh prinsipnya dan memiliki cita-cita yang besar. Mimpinya bukan hanya tentang dirinya tapi juga tentang kepentingan orang banyak dan kaum yang termarjinalkan.', './temp/csd.jpg', 2, 1, '2013-05-02', 1),
-(2, 'Orang-orang di Persimpangan Kiri Jalan', 'Novel Orang-orang di Persimpangan Kiri Jalan ini sejatinya diangkat dari skripsi karya Soe Hok Gie dengan judul \"Simpang Kiri dari Sebuah Jalan : Kisah Pemberontakan PKI Madiun September 1948\". Novel ini menjelaskan bagaimana sepak terjang dari Komunisme di Indonesia. Novel ini hanya membahas mengenai pemberontakan PKI di Madiun pada 1948 dan konflik internal yang terjadi pada organisasi PKI.\r\n', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1464618963i/1283197.jpg', 1, 1, '2013-05-15', 1);
+(17, 'testing saja ', 'dsafaddfsad', 'thumbnail/IMG-64789b440a95b7.88028792.jpg', 1, 1, '2023-06-12', 2),
+(18, 'dinda jangan marah marah', 'dasdsagasdasddsa', 'thumbnail/IMG-64789e1a3f8ec6.67102633.jpg', 2, 3, '2023-06-27', 2);
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,9 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `name`, `rak_id`) VALUES
 (1, 'Sejarah', 1),
-(2, 'Politik', 1);
+(2, 'Politik', 1),
+(3, 'Romansa', 2),
+(4, 'Percintaan', 2);
 
 -- --------------------------------------------------------
 
@@ -87,7 +89,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id`, `username`, `fullname`, `password`, `phone_number`, `jenis_kelamin`, `token`) VALUES
-(1, 'saugix', 'Ahmad Saugi', 'hahahihi', '081808042380', 'L', 'h4rBeEORYnBSavu');
+(4, 'member1', 'member 1 ', 'member123', '081808042385', 'L', '');
 
 -- --------------------------------------------------------
 
@@ -105,14 +107,6 @@ CREATE TABLE `peminjaman` (
   `kode_peminjaman` char(10) NOT NULL,
   `status` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `peminjaman`
---
-
-INSERT INTO `peminjaman` (`id`, `buku_id`, `member_id`, `petugas_id`, `tgl_awal_pinjam`, `tgl_akhir_pinjam`, `kode_peminjaman`, `status`) VALUES
-(6, 1, 1, 1, '2023-05-29', '2023-05-31', 'pm4KXXxgBQ', 'process'),
-(8, 2, 1, 1, '2023-05-31', '2023-06-03', 'pm71cH6xWq', 'process');
 
 -- --------------------------------------------------------
 
@@ -133,7 +127,8 @@ INSERT INTO `penerbit` (`id`, `name`) VALUES
 (1, 'Erlangga'),
 (2, 'Mizan '),
 (3, 'Gramedia'),
-(4, 'Elex Media ');
+(4, 'Elex Media '),
+(7, 'Tenizen Publishing');
 
 -- --------------------------------------------------------
 
@@ -149,13 +144,6 @@ CREATE TABLE `pengembalian` (
   `buku_id` int(11) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `pengembalian`
---
-
-INSERT INTO `pengembalian` (`id`, `member_id`, `tgl_pengembalian`, `petugas_id`, `buku_id`, `status`) VALUES
-(1, 1, '2023-05-31', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -175,7 +163,8 @@ CREATE TABLE `penulis` (
 --
 
 INSERT INTO `penulis` (`id`, `nama`, `deskripsi`, `foto`) VALUES
-(1, 'Soe Hok Gie', 'Drs. Soe Hok Gie adalah seorang aktivis keturunan Tionghoa-Indonesia yang menentang kediktatoran berturut-turut dari Presiden Soekarno dan Soeharto. Ia adalah mahasiswa Fakultas Sastra Universitas Indonesia Jurusan Sejarah tahun 1962–1969', 'https://www.biografiku.com/wp-content/uploads/2009/02/biografi-soe-hok-gie.jpg');
+(1, 'Soe Hok Gie', 'Drs. Soe Hok Gie adalah seorang aktivis keturunan Tionghoa-Indonesia yang menentang kediktatoran berturut-turut dari Presiden Soekarno dan Soeharto. Ia adalah mahasiswa Fakultas Sastra Universitas Indonesia Jurusan Sejarah tahun 1962–1969', 'https://www.biografiku.com/wp-content/uploads/2009/02/biografi-soe-hok-gie.jpg'),
+(2, 'Prof Dr Hamka', 'Prof. Dr. H. Abdul Malik Karim Amrullah Datuk Indomo, populer dengan nama penanya Hamka adalah seorang ulama, filsuf, dan sastrawan Indonesia. Ia berkarier sebagai wartawan, penulis, dan pengajar.', 'https://bctemas.beacukai.go.id/wp-content/uploads/2015/07/Buya_Hamka.jpeg.jpeg');
 
 -- --------------------------------------------------------
 
@@ -197,7 +186,8 @@ CREATE TABLE `petugas` (
 --
 
 INSERT INTO `petugas` (`id`, `username`, `fullname`, `password`, `nip`, `token`) VALUES
-(1, 'rayarizkuy', 'Raya Ar-Rizky', 'raya-chan', '112233', 'AD5QBcOhQHuWmkn');
+(1, 'rayarizkuy', 'Raya Ar-Rizky', 'raya-chan', '112233', 'AD7Wl08aqbRSXwQ'),
+(2, 'ikhsanadrians', 'adrians ikhsan', '112233', '1122333', '');
 
 -- --------------------------------------------------------
 
@@ -216,7 +206,8 @@ CREATE TABLE `rak` (
 --
 
 INSERT INTO `rak` (`id`, `no_rak`, `nama_rak`) VALUES
-(1, 1, 'Sejarah Dan Politik');
+(1, 1, 'Sejarah Dan Politik'),
+(2, 2, 'Romansa Dan Percintaan');
 
 -- --------------------------------------------------------
 
@@ -243,7 +234,8 @@ ALTER TABLE `book`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`),
   ADD KEY `penerbit_id` (`penerbit_id`),
-  ADD KEY `penulis_id` (`penulis_id`);
+  ADD KEY `penulis_id` (`penulis_id`),
+  ADD KEY `category_id_2` (`category_id`);
 
 --
 -- Indeks untuk tabel `category`
@@ -317,31 +309,31 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT untuk tabel `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `penerbit`
 --
 ALTER TABLE `penerbit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengembalian`
@@ -353,19 +345,19 @@ ALTER TABLE `pengembalian`
 -- AUTO_INCREMENT untuk tabel `penulis`
 --
 ALTER TABLE `penulis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `petugas`
 --
 ALTER TABLE `petugas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `rak`
 --
 ALTER TABLE `rak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `review`

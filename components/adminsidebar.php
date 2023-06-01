@@ -6,7 +6,7 @@
         </li>
         <li class="mt-4">
         <li class="nav-item">
-            <a class="nav-link" href="../../index.php"><i class="bi bi-house-fill"></i> Homepage</a>
+            <a class="nav-link" href="../index.php"><i class="bi bi-house-fill"></i> Homepage</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="../admin/buku/index.php"><i class="bi bi-book-fill"></i> Daftar Buku</a>
@@ -15,10 +15,16 @@
             <a class="nav-link" href="../admin/peminjaman/index.php"><i class="bi bi-arrow-left"></i> Peminjaman</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="bi bi-arrow-right"></i> Pengembalian</a>
+            <a class="nav-link" href="../admin/pengembalian/index.php"><i class="bi bi-arrow-right"></i> Pengembalian</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="bi bi-hourglass-split"></i> History</a>
+            <a class="nav-link" href="../admin/penulis/"><i class="bi bi-pen-fill"></i> Penulis</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../admin/penerbit/"><i class="bi bi-archive-fill"></i> Penerbit</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href=""><i class="bi bi-hourglass-split"></i> History</a>
         </li>
         </li>
     </ul>

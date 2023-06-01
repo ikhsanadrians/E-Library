@@ -7,7 +7,8 @@ include('../../core/controllers/admin.php');
 $admins = new Admin;
 
 
-// $admins->Middleware(1, 'Location:/');
+
+$admins->Middleware(2,'Location:Auth/login.php');
 
 
 if (isset($_POST['submit'])) {

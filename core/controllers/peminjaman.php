@@ -12,6 +12,14 @@ class Peminjaman extends DB
       return $data;
     } 
 
+
+    public function index(){
+        $sql = "SELECT * FROM peminjaman";
+        $queryExec = $this->db->query($sql);
+        $data = $queryExec->fetch_all(MYSQLI_ASSOC);
+        return $data;
+    }
+
     public function getMemberByToken($token)
     {
         $sql = "SELECT * FROM member WHERE token='$token'";
@@ -63,8 +71,24 @@ class Peminjaman extends DB
     }
     
      
+    public function AktivasiPeminjaman($id){
+        $sql = "UPDATE peminjaman SET status='acc' WHERE id='$id'";
+        $queryExec = $this->db->query($sql);
+        
+        if($queryExec){
+            header("Location:./index.php?message=update-berhasil");
+        }
+    }
 
+    public function TolakPeminjaman($id){
+        $sql = "DELETE FROM peminjaman WHERE id='$id'";
+        $queryExec = $this->db->query($sql);
+        
+        if($queryExec){
+            header("Location:./index.php?message=berhasil-hapus");
+        }
 
+    }
 
     public function requestPeminjaman()
     { 

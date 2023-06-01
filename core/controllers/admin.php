@@ -51,6 +51,16 @@ class Admin extends DB {
   
 
 
+    public function Middleware($sessionCondition,$headerLoc): void
+    {
+      
+      if (session_status() === PHP_SESSION_NONE) session_start();
+  
+      if ($sessionCondition == 1 ? ($_SESSION['admin_token'] ?? null) : (!$_SESSION['admin_token'] ?? null) ) 
+          header($headerLoc);
+       
+    }
+
     public function LogOut(): void
     {
       session_unset();

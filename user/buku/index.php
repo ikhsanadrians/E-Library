@@ -54,7 +54,7 @@ $bookData = $books->index();
                             <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-img-top">
-                                        <img src="<?=  $book['image'] ?>" alt="Title">
+                                        <img src="../../admin/buku/<?=  $book['image'] ?>" alt="Title">
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title"><a href="detail.php?id=<?= $book['id'] ?>"><?= $book["judul"] ?></a></h4>

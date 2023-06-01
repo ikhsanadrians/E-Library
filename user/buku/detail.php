@@ -6,6 +6,7 @@ $books = new Book;
 $book = $books->show();
 
 
+
 ?>
 
 
@@ -35,7 +36,7 @@ $book = $books->show();
                         <div class="col-12">
                             <div class="card bg-white" style="overflow:hidden">
                                 <div class="card-img-detail">
-                                    <img src="<?= $book['image'] ?>" alt="Title">
+                                    <img src="../../admin/buku/<?= $book['image'] ?>" alt="Title">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">
@@ -48,7 +49,7 @@ $book = $books->show();
                                         <?= $book['deskripsi'] ?>
                                     </p>
                                     <h6 class="font-ultrabold"><span style="font-weight: 400;">Kategori / </span>
-                                        <?= $books->getCategoryById($book['id'])['name'] ?>
+                                        <?= $books->getCategoryById($book['category_id'])['name'] ?>
                                     </h6>
                                     <button class="btn btn-primary float-end">Ajukan Peminjaman</button>
                                 </div>

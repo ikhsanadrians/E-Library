@@ -1,13 +1,18 @@
 <?php
 
 include_once('../core/controllers/admin.php');
+include_once('../core/controllers/peminjaman.php');
 
 $admins = new Admin;
 
 session_start();
 
 $admin = $admins->getAdminByToken($_SESSION['admin_token']);
+$peminjaman = new Peminjaman;
+$peminjamanCount = count($peminjaman->index());
 
+
+$admins->Middleware(2,'Location:login.php');
 
 
 if(isset($_POST['logout'])){
@@ -57,7 +62,9 @@ if(isset($_POST['logout'])){
                     </div>
                       <div class="title">
                       <h2 class="card-title text-muted">Request Pinjam Buku</h2>
-                      <h1 class="card-text"></h1>
+                      <h1 class="card-text">
+                        <?= $peminjamanCount ?>
+                      </h1>
                       </div>
                   </div>
                 </div>
@@ -72,7 +79,9 @@ if(isset($_POST['logout'])){
                     </div>
                       <div class="title">
                       <h2 class="card-title text-muted">Buku Yang Belum Dikembalikan</h2>
-                      <h1 class="card-text"></h1>
+                      <h1 class="card-text">
+                        1
+                      </h1>
                       </div>
                   </div>
                 </div>
