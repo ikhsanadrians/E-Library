@@ -18,7 +18,8 @@ if(isset($_POST['logout'])){
   $members->LogOut();
 }
 
-$peminjamanData = $peminjamans->getAllPeminjamanById($member['id']);
+if($member) $peminjamanData = $peminjamans->getAllPeminjamanById($member['id']);
+else header('Location:Auth/login.php');
 
 ?>
 

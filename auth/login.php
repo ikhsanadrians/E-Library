@@ -86,7 +86,7 @@ if (isset($_GET['message'])) {
           <div class="text-center mt-5">
             <p class="text-gray-600">
               Tidak Punya Akun?
-              <a href="auth-register.html" class="font-bold">Sign up</a>.
+              <a href="./register.php" class="font-bold">Sign up</a>.
             </p>
             <p>
               <a class="font-bold" href="auth-forgot-password.html">Lupa password?</a>.

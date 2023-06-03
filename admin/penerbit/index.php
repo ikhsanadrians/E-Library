@@ -1,13 +1,13 @@
 <?php
 
-include('../../core/controllers/penerbit.php');
+include('../../core/controllers/penerbit.php' );
 include('../../core/controllers/admin.php');
 
 $penerbits = new Penerbit;
 $penerbitsData = $penerbits->index();
 
 
-session_start();
+session_start();                                                                                                                                                                                                                                                                                                                                          
 
 $admins = new Admin;
 $admins->Middleware(2,'Location:login.php');
@@ -17,7 +17,7 @@ if(isset($_POST['delete'])){
     $penerbits->destroy($_POST['idtodelete']);
 }
 
-
+   
 
 
 if (isset($_GET['message'])) {

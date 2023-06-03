@@ -69,7 +69,15 @@ class Member extends DB
   }
 
   public function Register()
-  {
+  { 
+    $username = $_POST['username'];
+    $fullname = $_POST['fullname'];
+    $phoneNumber = $_POST['phoneNumber'];
+    $password = $_POST['password'];
+    $token = $this->GenerateToken();
+
+
+    $sql = "INSERT INTO `member`( `username`, `fullname`, `password`, `phone_number`, `token`) VALUES ('$username','$fullname','$phoneNumber','$password','$token')";
 
   }
 
