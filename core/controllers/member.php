@@ -78,7 +78,13 @@ class Member extends DB
 
 
     $sql = "INSERT INTO `member`( `username`, `fullname`, `password`, `phone_number`, `token`) VALUES ('$username','$fullname','$phoneNumber','$password','$token')";
+     
 
+    if($sql){
+      session_start();
+      $_SESSION['user_token'] = $token;
+    }  
+    header('Location:/'); 
   }
 
 }

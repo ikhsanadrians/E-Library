@@ -2,28 +2,22 @@
 
 
 
-// include('../core/controllers/member.php');
+include('../core/controllers/member.php');
 
-// $members = new Member;
-
-
-// $members->Middleware(1, 'Location:/');
+$members = new Member;
 
 
-// if (isset($_POST['submit'])) {
+$members->Middleware(1, 'Location:/');
 
-//   $members->Login();
 
-// }
 
-// if (isset($_GET['message'])) {
-//   echo "<script>
-//   setTimeout(function() {
-//       window.location.href = window.location.href.split('?')[0];
-//   }, 2000);
-//   </script>";
+if (isset($_POST['submit'])) {
 
-// }
+  $members->Register();
+
+}
+
+
 
 
 
@@ -72,13 +66,13 @@
               </div>
             </div>
             <div class="form-group position-relative has-icon-left mb-4 d-flex">
-              <input type="text" name="username" class="form-control form-control-md" placeholder="Fullname" />
+              <input type="text" name="fullname" class="form-control form-control-md" placeholder="Fullname" />
               <div class="form-control-icon mt-1">
                 <i class="bi bi-person"></i>
               </div>
             </div>
             <div class="form-group position-relative has-icon-left mb-4 d-flex">
-              <input type="text" name="username" class="form-control form-control-md" placeholder="No HP" />
+              <input type="text" name="phoneNumber" class="form-control form-control-md" placeholder="No HP" />
               <div class="form-control-icon mt-1">
                 <i class="bi bi-phone"></i>
               </div>
@@ -90,7 +84,7 @@
               </div>
             </div>
             <div class="form-group position-relative has-icon-left mb-2">
-              <input id="confirm-input" type="password" name="password" class="form-control form-control-md" placeholder="Confirm Password" />
+              <input id="confirm-input" type="password" name="confirmPass" class="form-control form-control-md" placeholder="Confirm Password" />
               <div class="form-control-icon mt-1">
                 <i class="bi bi-shield-lock"></i>
               </div>
@@ -110,7 +104,6 @@
       <div class="col-lg-7 d-none d-lg-block">
         <div id="auth-right"
           style="background-image:url('../assets/images/eperpus/ilustrasi.jpg');object-fit:cover;width:100%;height:100%">
-
         </div>
       </div>
     </div>
